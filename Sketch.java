@@ -1,14 +1,26 @@
 import processing.core.PApplet;
+/*
+-------------------------------------------------------------------------------
+Name:		Sketch.java
+Purpose:	Calling Functions 5.2 Processing Task
 
+Author:	Lui.G
+
+Created:	2022-02-16
+------------------------------------------------------------------------------
+*/
 public class Sketch extends PApplet {
-	
-	
+  public float blockX = 40;
+  public float blockY = 50;
+  public boolean end = false;
   /**
    * Called once at the beginning of execution, put your size all in this method
    */
   public void settings() {
 	// put your size call here
-    size(400, 400);
+    int totalArea = 1000;
+    size(totalArea, totalArea);
+
   }
 
   /** 
@@ -16,21 +28,35 @@ public class Sketch extends PApplet {
    * values here i.e background, stroke, fill etc.
    */
   public void setup() {
-    background(210, 255, 173);
+
+    background(104, 143, 212);
   }
 
   /**
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-	  
-	// sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);  
+      if(blockX+(width/(width/50)) >= width){
+       
+        blockX-=5;
+      }
 
-    stroke(255);
-    line(50, 125, 70, 50);  
+      if(blockX <= 0){
+
+        blockX+=5;
+      }
+
+      if(blockY+(height/(height/50)) == height){
+
+        blockY--;
+      }
+
+      if(blockY == 0){
+
+        blockY++;
+      }
+
+      background(104, 143, 212);
+      rect(blockX, blockY, width/(width/50),height/(height/50));
   }
-  
-  // define other methods down here.
 }
